@@ -1,37 +1,30 @@
 <html>
-<body bgcolor="powderblue">
-<a style="color:#000000;" class="nav-link" href="{{ url_for('search_page') }}">Search</a>
-<a style="color:#000000;" class="nav-link" href="{{ url_for('market_page') }}">Market</a>
-<h1> <b> <u>  Search page </u> </b> </h1>
-
-<form method="POST">
-    <input type="text" autofocus="autofocus" name="search_string">
-    <input type="submit" formaction="/search" value="Search">
-    </form>
-<h3> {{ legend }} </h3>
-{% if items %}
-    <table border="1">
-        <thead>
-        <tr>
-            <th> Product Name </th>
-            <th> Product Price</th>
-
-        </tr>
-        </thead>
-        <tbody>
+   <body bgcolor="powderblue">
+      <a style="color:#000000;" class="nav-link" href="{{ url_for('search_page') }}">Search</a>
+      <a style="color:#000000;" class="nav-link" href="{{ url_for('market_page') }}">Market</a>
+      <h1> <b> <u>  Search page </u> </b> </h1>
+      <form method="POST">
+         <input type="text" autofocus="autofocus" name="search_string">
+         <input type="submit" formaction="/search" value="Search">
+      </form>
+      <h3> {{ legend }} </h3>
+      {% if items %}
+      <table border="1">
+         <thead>
+            <tr>
+               <th> Product Name </th>
+               <th> Product Price</th>
+            </tr>
+         </thead>
+         <tbody>
             {% for row in items %}
-        <tr>
-            <td align="center">{{ row.name }} </td>
-            <td align="center">{{ row.price }}₪ </td>
-            {% endfor %}
-        </tr>
-        </tbody>
-    </table>
-
-{% endif %}
-</body>
+            <tr>
+               <td align="center">{{ row.name }} </td>
+               <td align="center">{{ row.price }}₪ </td>
+               {% endfor %}
+            </tr>
+         </tbody>
+      </table>
+      {% endif %}
+   </body>
 </html>
-
-
-
-
