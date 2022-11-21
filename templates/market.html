@@ -1,50 +1,41 @@
 <html>
-<body bgcolor="powderblue">
-{% block content %}
- <a style="color:#000000;" class="nav-link" href="{{ url_for('search_page') }}">Search</a>
- <a style="color:#000000;" class="nav-link" href="{{ url_for('market_page') }}">Market</a>
-  <h1> <b> <u>  Market page </u> </b> </h1>
-
-  <br>
-    <br>
-<div class="container">
-  <form action="/market" METHOD="POST">
-    <input type="text" placeholder="Product Name" name="name">
-    <input type="text" placeholder="Product Price" name="price">
-    <input type="submit" value="Submit" class="btn btn-secondary">
-
-  </form>
-
-  <br>
-
-
-
-
-
-
-  <table border="1" style="width:100%">
-    <tr>
-
-    <th bgcolor="gray"> <h1> name</h1> </th>
-    <th bgcolor="gray"> <h1> price </h1>  </th>
-    <th bgcolor="black"> </th>
-    </tr>
-
-    <tr>
-{% for item in items %}
-       <td> <h3 align="center"> {{ item.name }}  </h3> </td>
-       <td> <h3 align="center"> {{ item.price }}₪ </h3> </td>
-        <td align="center"><button style=background-color:#FF4433 type="button" class="btn btn-danger"> <a href="/delete/{{ item.id }}"> Delete </a> </button> </td>
-
-     </tr>
-    {% endfor %}
-   </table>
-
-
-</div>
-{% endblock %}
-</body>
+   <body bgcolor="powderblue">
+      {% block content %}
+      <a style="color:#000000;" class="nav-link" href="{{ url_for('search_page') }}">Search</a>
+      <a style="color:#000000;" class="nav-link" href="{{ url_for('market_page') }}">Market</a>
+      <h1> <b> <u>  Market page </u> </b> </h1>
+      <br>
+      <br>
+      <div class="container">
+         <form action="/market" METHOD="POST">
+            <input type="text" placeholder="Product Name" name="name">
+            <input type="text" placeholder="Product Price" name="price">
+            <input type="submit" value="Submit" class="btn btn-secondary">
+         </form>
+         <br>
+         <table border="1" style="width:100%">
+            <tr>
+               <th bgcolor="gray">
+                  <h1> name</h1>
+               </th>
+               <th bgcolor="gray">
+                  <h1> price </h1>
+               </th>
+               <th bgcolor="black"> </th>
+            </tr>
+            <tr>
+               {% for item in items %}
+               <td>
+                  <h3 align="center"> {{ item.name }}  </h3>
+               </td>
+               <td>
+                  <h3 align="center"> {{ item.price }}₪ </h3>
+               </td>
+               <td align="center"><button style=background-color:#FF4433 type="button" class="btn btn-danger"> <a href="/delete/{{ item.id }}"> Delete </a> </button> </td>
+            </tr>
+            {% endfor %}
+         </table>
+      </div>
+      {% endblock %}
+   </body>
 </html>
-
-
-
