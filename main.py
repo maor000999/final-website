@@ -60,7 +60,7 @@ def search_page():
         search = '%{0}%'.format(search_value)
         results = Product.query.filter(Product.name.like(search)).all()
         return render_template('search.html', items=results,
-                               pageTitle='Mike\'s Friends',
+                               pageTitle='Product Table',
                                legend='Search Results')
     else:
         return render_template('search.html')
